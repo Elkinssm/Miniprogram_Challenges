@@ -1,0 +1,20 @@
+<view class="container">
+  <swiper
+    indicator-dots="true"
+    autoplay="true"
+    interval="3000"
+    duration="500"
+    onChange="handleSwiperChange"
+  >
+    <block a:for="{{images}}" a:key="index">
+      <swiper-item>
+        <view class="slide-item" onTap="handleImageTap" data-description="{{item.description}}">
+          <image src="{{item.src}}" class="slide-image" />
+          <view class="description-overlay">
+            <text class="description-text">{{item.description}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

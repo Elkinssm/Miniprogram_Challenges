@@ -1,0 +1,12 @@
+{
+  "subPackageBuildType": "shared",
+  "pages": [
+    "pages/index/index",
+    "pages/gallery/gallery",
+    "pages/form/form",
+    "pages/products/products"
+  ],
+  "window": {
+    "defaultTitle": "Miniprogram Challenges"
+  }
+}

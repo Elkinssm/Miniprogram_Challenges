@@ -1,0 +1,80 @@
+<view class="container">
+  <form>
+    <view class="form-item">
+      <label for="size">Size:</label>
+      <picker
+        id="size"
+        name="size"
+        onChange="handleSizeChange"
+        value="{{sizeIndex}}"
+        range="{{sizeArray}}"
+      >
+        <view class="picker">
+          Current selection: {{sizeArray[sizeIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <label>Colors:</label>
+      <view class="color-options">
+        <button
+          class="color-button {{selectedColors.includes('red') ? 'selected' : ''}}"
+          data-color="red"
+          onTap="handleColorButtonTap"
+          style="background-color: {{selectedColors.includes('red') ? 'red' : 'white'}}; color: {{selectedColors.includes('red') ? 'white' : 'black'}};"
+        >
+          Red
+        </button>
+        <button
+          class="color-button {{selectedColors.includes('blue') ? 'selected' : ''}}"
+          data-color="blue"
+          onTap="handleColorButtonTap"
+          style="background-color: {{selectedColors.includes('blue') ? 'blue' : 'white'}}; color: {{selectedColors.includes('blue') ? 'white' : 'black'}};"
+        >
+          Blue
+        </button>
+        <button
+          class="color-button {{selectedColors.includes('green') ? 'selected' : ''}}"
+          data-color="green"
+          onTap="handleColorButtonTap"
+          style="background-color: {{selectedColors.includes('green') ? 'green' : 'white'}}; color: {{selectedColors.includes('green') ? 'white' : 'black'}};"
+        >
+          Green
+        </button>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <label for="quantity">Quantity:</label>
+      <input
+        id="quantity"
+        name="quantity"
+        type="number"
+        min="1"
+        value="1"
+        onInput="handleQuantityChange"
+      />
+    </view>
+
+    <view class="form-item">
+      <label for="discount">Apply Discount:</label>
+      <switch id="discount" name="discount" onChange="handleDiscountSwitch" />
+    </view>
+
+    <view class="form-item">
+      <label id="totalPrice">Total Price: ${{totalPrice}}</label>
+    </view>
+
+    <view class="form-item">
+      <label>Product Summary:</label>
+      <view class="summary">
+        <text>Size: {{sizeArray[sizeIndex]}}</text>
+        <text>Colors: {{selectedColors.join(', ')}}</text>
+        <text>Quantity: {{quantity}}</text>
+        <text>Discount Applied: {{applyDiscount ? 'Yes' : 'No'}}</text>
+        <text>Total Price: ${{totalPrice}}</text>
+      </view>
+    </view>
+  </form>
+</view>

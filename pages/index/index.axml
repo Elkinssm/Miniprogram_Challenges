@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="header">
+    <text class="title">Miniprogram Challenges</text>
+  </view>
+  <view class="content">
+    <button class="nav-button" onTap="navigateToGallery">
+      Go to Image Gallery
+    </button>
+    <button class="nav-button" onTap="navigateToForm">
+      Go to Registration Form
+    </button>
+    <button class="nav-button" onTap="navigateToProduct">
+      Go to Product
+    </button>
+  </view>
+</view>
