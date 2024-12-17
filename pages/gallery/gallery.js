@@ -7,8 +7,8 @@ Page({
       { src: '../../assets/club.png', description: 'Esto es un ejemplo de descripcion' }
     ]
   },
-  handleImageTap(e) {
-    const description = e.currentTarget.dataset.description;
+   handleImageTap(e) {
+     const description = e.currentTarget.dataset.description;
     my.alert({
       title: 'Image Selected',
       content: description,

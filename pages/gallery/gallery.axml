@@ -1,16 +1,32 @@
 <view class="container">
   <swiper
-    indicator-dots="true"
-    autoplay="true"
-    interval="3000"
-    duration="500"
+    indicator-dots="{{true}}"
+    indicator-color="rgba(0, 0, 0, .3)"
+    indicator-active-color="#000000"
+    autoplay="{{true}}"
+    interval="{{4000}}"
+    duration="{{400}}"
+    circular="{{true}}"
+    easing-function="easeInOutCubic"
     onChange="handleSwiperChange"
+    onTransition="handleTransition"
   >
-    <block a:for="{{images}}" a:key="index">
+    <block a:for="{{images}}" a:key="{{item.id || index}}">
       <swiper-item>
-        <view class="slide-item" onTap="handleImageTap" data-description="{{item.description}}">
-          <image src="{{item.src}}" class="slide-image" />
-          <view class="description-overlay">
+        <view 
+          class="slide-item {{currentIndex === index ? 'active' : ''}}" 
+          onTap="handleImageTap" 
+          data-index="{{index}}"
+          data-description="{{item.description}}"
+        >
+          <image 
+            src="{{item.src}}" 
+            class="slide-image" 
+            mode="aspectFill"
+            lazy-load="{{true}}"
+            onError="handleImageError"
+          />
+          <view class="description-overlay" a:if="{{item.description}}">
             <text class="description-text">{{item.description}}</text>
           </view>
         </view>
