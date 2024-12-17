@@ -16,19 +16,22 @@
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .description-overlay {
   position: absolute;
-  height: 20px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  padding: 5px 10px;
+  border-radius: 0 0 10px 10px;
   text-align: center;
-  padding: 10px 0;
-  border-radius: 10px;
 }
 
 .description-text {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
 }

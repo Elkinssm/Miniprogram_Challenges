@@ -1,8 +1,9 @@
 .container {
   padding: 20px;
   background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 .form-item {
@@ -11,8 +12,9 @@
 
 .form-item label {
   display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
 }
 
 .picker,
@@ -20,11 +22,19 @@
 .switch {
   display: block;
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #fff;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.picker:hover,
+.input:hover,
+.switch:hover {
+  border-color: #007aff;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .picker {
@@ -33,18 +43,24 @@
 
 .color-options {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .color-button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.color-button:hover {
+  background-color: #e6e6e6;
 }
 
 .color-button.selected {
   border-color: #007aff;
+  background-color: #cce5ff;
 }
 
 .input {
@@ -57,24 +73,48 @@
 }
 
 #totalPrice {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  color: #007aff;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .summary {
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 24px;
+  padding: 16px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #fff;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-  
+
 .summary text {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-size: 16px;
+  color: #333;
+}
+
+.summary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.summary-button:hover {
+  background-color: #005bb5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

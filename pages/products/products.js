@@ -32,10 +32,6 @@ Page({
       sizeIndex: sizeIndex,
       basePrice: this.data.sizes[selectedSize],
     });
-    my.alert({
-      title: "Size Selected",
-      content: `You selected ${selectedSize} size.`,
-    });
     this.updateTotalPrice();
   },
 
@@ -59,13 +55,12 @@ Page({
   },
 
   handleQuantityChange(e) {
-    const quantity = parseInt(e.detail.value, 10);
+    let quantity = parseInt(e.detail.value, 10);
+    if (isNaN(quantity) || quantity < 1) {
+      quantity = 1;
+    }
     this.setData({
       quantity: quantity,
-    });
-    my.alert({
-      title: "Quantity Changed",
-      content: `You selected ${quantity} units.`,
     });
     this.updateTotalPrice();
   },
@@ -73,10 +68,6 @@ Page({
   handleDiscountSwitch(e) {
     this.setData({
       applyDiscount: e.detail.value,
-    });
-    my.alert({
-      title: "Discount Toggle",
-      content: `Discount is now ${e.detail.value ? "enabled" : "disabled"}.`,
     });
     this.updateTotalPrice();
   },
@@ -89,6 +80,34 @@ Page({
     }
     this.setData({
       totalPrice: totalPrice.toFixed(2),
+    });
+  },
+
+  showSummary() {
+    const selectedSize = this.data.sizeArray[this.data.sizeIndex];
+    const selectedColors = this.data.selectedColors.join(", ");
+    const summary = `
+      Size: ${selectedSize}
+      Colors: ${selectedColors}
+      Quantity: ${this.data.quantity}
+      Total Price: $${this.data.totalPrice}
+    `;
+    my.confirm({
+      title: "Summary of Purchase",
+      content: summary,
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
+      success: (result) => {
+        if (result.confirm) {
+          my.alert({
+            title: "Order Confirmed",
+          });
+        } else {
+          my.alert({
+            title: "Order Cancelled",
+          });
+        }
+      },
     });
   },
 });

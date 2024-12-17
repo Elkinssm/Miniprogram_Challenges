@@ -76,5 +76,6 @@
         <text>Total Price: ${{totalPrice}}</text>
       </view>
     </view>
+    <button class="summary-button" onTap=showSummary>Mostrar Resumen</button>
   </form>
 </view>
