@@ -79,3 +79,9 @@
     <button class="summary-button" onTap=showSummary>Mostrar Resumen</button>
   </form>
 </view>
+
+<picker mode="selector" range="{{items}}" range-key="name" onChange="handlePickerChange">
+  <view class="picker">
+    {{selectedItemName}}
+  </view>
+</picker>

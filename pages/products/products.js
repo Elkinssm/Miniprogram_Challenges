@@ -19,6 +19,13 @@ Page({
     applyDiscount: false,
     totalPrice: 10,
     selectedColors: [],
+
+    items: [
+      { id: 1, name: "Nombre 23", name2: "test" },
+      { id: 2, name: "Item 2", name3: "desdeName3" },
+      { id: 3, name: "Item 3" },
+    ],
+    selectedItemName: "Select an item",
   },
 
   onLoad() {
@@ -108,6 +115,13 @@ Page({
           });
         }
       },
+    });
+  },
+
+  handlePickerChange(e) {
+    const index = e.detail.value;
+    this.setData({
+      selectedItemName: this.data.items[index].name,
     });
   },
 });
